@@ -8019,7 +8019,7 @@ game_Player.prototype = $extend(game_Tank.prototype,{
 		var img = kha_Assets.images.gui_hp;
 		var offX = this.hudOffset;
 		var scale = game_gui_Ui.getHpScale();
-		var frameW = (img.get_width()) * scale*0.1;
+		var frameW = (img.get_width() - 10) * scale*0.1;
 		var max = hp + shieldHp;
 		if(hp + shieldHp < maxHp + maxShieldHp) {
 			max += 2;
