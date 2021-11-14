@@ -8019,7 +8019,7 @@ game_Player.prototype = $extend(game_Tank.prototype,{
 		var img = kha_Assets.images.gui_hp;
 		var offX = this.hudOffset;
 		var scale = game_gui_Ui.getHpScale();
-		var frameW = (img.get_width() - 18.5) * scale*0.5;
+		var frameW = (img.get_width()+45) * scale*0.1;
 		var max = hp + shieldHp;
 		if(hp + shieldHp < maxHp + maxShieldHp) {
 			max += 2;
@@ -8065,6 +8065,7 @@ game_Player.prototype = $extend(game_Tank.prototype,{
 		}
 		g.set_color(-1);
 	}
+	//render UI HUD
 	,renderHud: function(g,ui) {
 		this.game.setGraphicScale(g,1);
 		var offY = this.hudOffset;
@@ -8072,8 +8073,9 @@ game_Player.prototype = $extend(game_Tank.prototype,{
 		var hpScale = game_gui_Ui.getHpScale();
 		var h = (kha_Assets.images.gui_hp.get_height() - 8) * hpScale | 0;
 		offY += h;
+		//offset enemy hp
 		if(this.tankTarget != null && this.tankTarget.isAlive) {
-			this.renderTankHp(g,this.tankTarget,offY);
+			this.renderTankHp(g,this.tankTarget,offY+2);
 		} else if(this.buildingTarget != null && this.buildingTarget.isAlive) {
 			var build = this.buildingTarget;
 			this.renderHpLine(g,offY,build.team,build.hp,build.maxHp,0,0);
