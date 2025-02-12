@@ -2329,7 +2329,7 @@ game_Tank.prototype = {
 			dmg *= 2;
 		}
 		var sound = Std.random(2) == 0 ? kha_Assets.sounds.sounds_hit_metal01 : kha_Assets.sounds.sounds_hit_metal02;
-		if(!isExpl && dmg >= 3) {
+		if(!isExpl && dmg >= 75) {
 			sound = kha_Assets.sounds.sounds_hit_ap;
 		}
 		var powerFieldDmg = 0;
@@ -7594,7 +7594,7 @@ game_Player.prototype = $extend(game_Tank.prototype,{
 					case "RepairAllys":case "RepairTank":
 					return 1000;
 				} */
-			return 99;
+			return maxItems;
 		}
 	}
 	,getAllyDamageCount: function() {
