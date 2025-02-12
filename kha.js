@@ -2953,16 +2953,15 @@
       if (this == this.game.player) {
         if (this.game.player.research.FieldBlastResearch > 0) {
           if (this.shieldHp >= 0) {
-            this.game.player.invulnerableTime += 40;
             this.game.addExplosion(
               new game_Explosion(
                 this.game,
                 this.tilemap,
                 new game_ExplSets(
-                  this.cell.x,
+                  this.cell.x - 1,
                   this.cell.y,
                   null,
-                  2,
+                  1,
                   50,
                   null,
                   null,
@@ -2970,6 +2969,71 @@
                 ),
               ),
             );
+            this.game.addExplosion(
+              new game_Explosion(
+                this.game,
+                this.tilemap,
+                new game_ExplSets(
+                  this.cell.x + 1,
+                  this.cell.y,
+                  null,
+                  1,
+                  50,
+                  null,
+                  null,
+                  null,
+                ),
+              ),
+            );
+            this.game.addExplosion(
+              new game_Explosion(
+                this.game,
+                this.tilemap,
+                new game_ExplSets(
+                  this.cell.x,
+                  this.cell.y - 1,
+                  null,
+                  1,
+                  50,
+                  null,
+                  null,
+                  null,
+                ),
+              ),
+            );
+            this.game.addExplosion(
+              new game_Explosion(
+                this.game,
+                this.tilemap,
+                new game_ExplSets(
+                  this.cell.x,
+                  this.cell.y + 1,
+                  null,
+                  1,
+                  50,
+                  null,
+                  null,
+                  null,
+                ),
+              ),
+            );
+            //this.game.player.invulnerableTime += 40;
+            // this.game.addExplosion(
+            //   new game_Explosion(
+            //     this.game,
+            //     this.tilemap,
+            //     new game_ExplSets(
+            //       this.cell.x,
+            //       this.cell.y,
+            //       null,
+            //       2,
+            //       50,
+            //       null,
+            //       null,
+            //       null,
+            //     ),
+            //   ),
+            // );
             //this.game.addDynamite(this.cell.x,this.cell.y,0,120);
           }
         }
