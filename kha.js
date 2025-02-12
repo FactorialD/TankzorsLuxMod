@@ -3555,13 +3555,13 @@
         case 42:
           this.reloadDelay -= 10;
           break;
-        case 43:
+        case Items.MACHINEGUN_LIGHT:
           this.reloadDelay -= 40;
           break;
-        case 44:
+        case Items.MACHINEGUN_MEDIUM:
           this.reloadDelay -= 40;
           break;
-        case 45:
+        case Items.MACHINEGUN_HEAVY:
           this.reloadDelay -= 40;
           break;
         case 47:
@@ -3573,9 +3573,9 @@
       if (this.speedUpTime > 0) {
         switch (this.bulletType) {
           //на пулеметы не действует скорость перезарядки
-          case 43:
-          case 44:
-          case 45:
+          case Items.MACHINEGUN_LIGHT:
+          case Items.MACHINEGUN_MEDIUM:
+          case Items.MACHINEGUN_HEAVY:
             break;
           default:
             this.reloadDelay -= 10;
@@ -3608,13 +3608,13 @@
         case 42:
           sound = kha_Assets.sounds.sounds_shell_plasma_double;
           break;
-        case 43:
+        case Items.MACHINEGUN_LIGHT:
           sound = kha_Assets.sounds.sounds_shell_default;
           break;
-        case 44:
+        case Items.MACHINEGUN_MEDIUM:
           sound = kha_Assets.sounds.sounds_shell_default;
           break;
-        case 45:
+        case Items.MACHINEGUN_HEAVY:
           sound = kha_Assets.sounds.sounds_shell_default;
           break;
         case 47:
@@ -3947,9 +3947,9 @@
         case 5:
         case 41:
         case 42:
-        case 43:
-        case 44:
-        case 45:
+        case Items.MACHINEGUN_LIGHT:
+        case Items.MACHINEGUN_MEDIUM:
+        case Items.MACHINEGUN_HEAVY:
         case 47:
         case 48:
           return true;
@@ -4882,11 +4882,11 @@
       case 42:
         return 42;
       case 43:
-        return 43;
+        return Items.MACHINEGUN_LIGHT;
       case 44:
-        return 44;
+        return Items.MACHINEGUN_MEDIUM;
       case 45:
-        return 45;
+        return Items.MACHINEGUN_HEAVY;
       case 47:
         return 47;
       case 48:
@@ -4984,27 +4984,27 @@
         case 42:
           tmp = 75;
           break;
-        case 43:
+        case Items.MACHINEGUN_LIGHT:
           tmp = 4;
           break;
-        case 44:
+        case Items.MACHINEGUN_MEDIUM:
           tmp = 5;
           break;
-        case 45:
+        case Items.MACHINEGUN_HEAVY:
           tmp = 6;
           break;
         case 47:
           tmp = 450;
           break;
         case 48:
-          tmp = 800;
+          tmp = 900;
           break;
       }
       if (this.isCrit) {
         switch (type) {
-          case 43:
-          case 44:
-          case 45:
+          case Items.MACHINEGUN_LIGHT:
+          case Items.MACHINEGUN_MEDIUM:
+          case Items.MACHINEGUN_HEAVY:
             break;
           default:
             tmp = tmp * 2;
@@ -5047,13 +5047,13 @@
         case 42:
           tmp1 = 3.5;
           break;
-        case 43:
+        case Items.MACHINEGUN_LIGHT:
           tmp1 = 4;
           break;
-        case 44:
+        case Items.MACHINEGUN_MEDIUM:
           tmp1 = 4;
           break;
-        case 45:
+        case Items.MACHINEGUN_HEAVY:
           tmp1 = 4;
           break;
         case 47:
@@ -5064,9 +5064,9 @@
       tmp1 += addSpeed;
       if (this.isCrit) {
         switch (type) {
-          case 43:
-          case 44:
-          case 45:
+          case Items.MACHINEGUN_LIGHT:
+          case Items.MACHINEGUN_MEDIUM:
+          case Items.MACHINEGUN_HEAVY:
             break;
           default:
             tmp1 = tmp1 * 2 > 6 ? 6 : tmp1 * 2;
@@ -5141,9 +5141,9 @@
         case 42:
           tmp4 = 4;
           break;
-        case 43:
-        case 44:
-        case 45:
+        case Items.MACHINEGUN_LIGHT:
+        case Items.MACHINEGUN_MEDIUM:
+        case Items.MACHINEGUN_HEAVY:
           tmp4 = 0;
           break;
         case 47:
@@ -5156,9 +5156,9 @@
     getBulletExplSprite: function () {
       switch (this.type) {
         case 0:
-        case 43:
-        case 44:
-        case 45:
+        case Items.MACHINEGUN_LIGHT:
+        case Items.MACHINEGUN_MEDIUM:
+        case Items.MACHINEGUN_HEAVY:
           return kha_Assets.images.expl_small;
         case 1:
           return kha_Assets.images.expl_plasma;
@@ -5227,7 +5227,11 @@
           this.remove();
           return true;
         }
-        if (this.type == 43 || this.type == 44 || this.type == 45) {
+        if (
+          this.type == Items.MACHINEGUN_LIGHT ||
+          this.type == Items.MACHINEGUN_MEDIUM ||
+          this.type == Items.MACHINEGUN_HEAVY
+        ) {
           if (this.game.player.research.MinigunResearch > 3) {
             this.damage = this.game.damageWall(x, y, this.damage);
             this.game.addBulletExplosion(this);
@@ -9030,9 +9034,9 @@
       var item = this.inventory.getItem();
       if (item != null) {
         switch (item.id) {
-          case 43:
-          case 44:
-          case 45:
+          case Items.MACHINEGUN_LIGHT:
+          case Items.MACHINEGUN_MEDIUM:
+          case Items.MACHINEGUN_HEAVY:
             break;
           default:
             if (this.research.shellResearch > 7) {
@@ -9057,9 +9061,9 @@
         case 7:
         case 41:
         case 42:
-        case 43:
-        case 44:
-        case 45:
+        case Items.MACHINEGUN_LIGHT:
+        case Items.MACHINEGUN_MEDIUM:
+        case Items.MACHINEGUN_HEAVY:
         case 47:
         case 48:
           break;
@@ -9152,9 +9156,9 @@
         case 7:
         case 41:
         case 42:
-        case 43:
-        case 44:
-        case 45:
+        case Items.MACHINEGUN_LIGHT:
+        case Items.MACHINEGUN_MEDIUM:
+        case Items.MACHINEGUN_HEAVY:
         case 47:
         case 48:
           this.bulletType = game__$Bullet_BulletType_$Impl_$.fromIcon(id);
@@ -9385,9 +9389,9 @@
             return 100;
           }
           break;
-        case 43:
-        case 44:
-        case 45:
+        case Items.MACHINEGUN_LIGHT:
+        case Items.MACHINEGUN_MEDIUM:
+        case Items.MACHINEGUN_HEAVY:
           return 1000;
         default: //usual shells
           /* switch (text){
@@ -18100,8 +18104,42 @@
       35, 120, 180,
     ];
     this.itemList = [
-      0, 1, 2, 3, 41, 42, 4, 5, 43, 44, 45, 6, 46, 7, 47, 48, 8, 10, 11, 50, 12,
-      13, 14, 9, 49, 25, 26, 27, 21, 22, 20, 19, 23, 17, 15, 55,
+      0,
+      1,
+      2,
+      3,
+      41,
+      42,
+      4,
+      5,
+      Items.MACHINEGUN_LIGHT,
+      Items.MACHINEGUN_MEDIUM,
+      Items.MACHINEGUN_HEAVY,
+      6,
+      46,
+      7,
+      47,
+      48,
+      8,
+      10,
+      11,
+      50,
+      12,
+      13,
+      14,
+      9,
+      49,
+      25,
+      26,
+      27,
+      21,
+      22,
+      20,
+      19,
+      23,
+      17,
+      15,
+      55,
     ];
     this.itemH = 0;
     this.currentId = 0;
@@ -18282,7 +18320,7 @@
           case 25:
             this.elements.push(game_gui__$Shop_Element.Header(25, "allyTanks"));
             break;
-          case 43:
+          case Items.MACHINEGUN_LIGHT:
             this.elements.push(game_gui__$Shop_Element.Header(43, "miniguns"));
             break;
           default:
@@ -18419,9 +18457,9 @@
           var _g11 = _g2.icon;
           var price = _g5;
           switch (_g11) {
-            case 43:
-            case 44:
-            case 45:
+            case Items.MACHINEGUN_LIGHT:
+            case Items.MACHINEGUN_MEDIUM:
+            case Items.MACHINEGUN_HEAVY:
               price = 9;
               this.elements[i] = game_gui__$Shop_Element.Item(
                 _g11,
@@ -18544,13 +18582,13 @@
             return r.shellResearch > 3;
           case 42:
             return r.shellResearch > 4;
-          case 43:
+          case Items.MACHINEGUN_LIGHT:
             this.addMinigunDiscount();
             return r.MinigunResearch > 0;
-          case 44:
+          case Items.MACHINEGUN_MEDIUM:
             this.addMinigunDiscount();
             return r.MinigunResearch > 1;
-          case 45:
+          case Items.MACHINEGUN_HEAVY:
             this.addMinigunDiscount();
             return r.MinigunResearch > 2;
           case 46:
@@ -19429,9 +19467,9 @@
           case 41:
           case 42:
             return 10;
-          case 43:
-          case 44:
-          case 45:
+          case Items.MACHINEGUN_LIGHT:
+          case Items.MACHINEGUN_MEDIUM:
+          case Items.MACHINEGUN_HEAVY:
             return 50;
           default:
             return 1;
