@@ -37,8 +37,15 @@
     }
   };
   var Items = {
-    SHELL: 1,
-    PLASMA: 2,
+    SHELL: 0,
+    PLASMA: 1,
+    SHELL_DOUBLE: 2,
+    PLASMA_DOUBLE: 3,
+    SHELL_TRIPLE: 41,
+    PLASMA_TRIPLE: 42,
+    SHELL_AP: 4,
+    SHELLP_AP_PLUS: 5,
+    WARHEAD: 6,
 
     MACHINEGUN_LIGHT: 43,
     MACHINEGUN_MEDIUM: 44,
@@ -3647,7 +3654,7 @@
       }
       var sound;
       switch (this.bulletType) {
-        case 0:
+        case Items.SHELL:
           sound = kha_Assets.sounds.sounds_shell_default;
           break;
         case 1:
@@ -4003,7 +4010,7 @@
         return false;
       }
       switch (this.inventory.get()[0].id) {
-        case 0:
+        case Items.SHELL:
         case 1:
         case 2:
         case 3:
@@ -4928,7 +4935,7 @@
   game__$Bullet_BulletType_$Impl_$.fromIcon = function (icon) {
     switch (icon) {
       case 0:
-        return 0;
+        return Items.SHELL;
       case 1:
         return 1;
       case 2:
@@ -5020,7 +5027,7 @@
 
       //bullet damage
       switch (type) {
-        case 0:
+        case Items.SHELL:
           tmp = 25;
           break;
         case 1:
@@ -5083,7 +5090,7 @@
         addSpeed = 0.2 * game1.player.research.reloadDelayResearch;
       }
       switch (type) {
-        case 0:
+        case Items.SHELL:
           tmp1 = 2;
           break;
         case 1:
@@ -5177,7 +5184,7 @@
       var tmp4;
       //icon for bullet
       switch (type) {
-        case 0:
+        case Items.SHELL:
           tmp4 = 0;
           break;
         case 1:
@@ -5219,7 +5226,7 @@
     },
     getBulletExplSprite: function () {
       switch (this.type) {
-        case 0:
+        case Items.SHELL:
         case Items.MACHINEGUN_LIGHT:
         case Items.MACHINEGUN_MEDIUM:
         case Items.MACHINEGUN_HEAVY:
@@ -9116,7 +9123,7 @@
         return;
       }
       switch (item.id) {
-        case 0:
+        case Items.SHELL:
         case 1:
         case 2:
         case 3:
@@ -9211,7 +9218,7 @@
     useItem: function (item) {
       var id = item.id;
       switch (id) {
-        case 0:
+        case Items.SHELL:
         case 1:
         case 2:
         case 3:
